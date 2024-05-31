@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "recoleta";
+  src: url(../fonts/Recoleta-RegularDEMO.otf);
+}
+
+body {
+  background: #111;
+  font-family: "recoleta";
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #ecd8bd;
+  padding: 4rem;
+}
+
+form input {
+  padding: 20px;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+}
+
+form select {
+  padding: 10px;
+  margin-bottom: 2rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50px;
+}
+
+form button {
+  background-color: #111;
+  color: white;
+  padding: 15px;
+  border-radius: 50px;
+}

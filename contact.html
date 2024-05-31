@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <h1>Contact Us...</h1>
+    <form class="contactform">
+      <input
+        type="text"
+        placeholder="Enter your Full Name"
+        class="fullname"
+        required
+      />
+      <input
+        type="tel"
+        placeholder="Enter your Phone number"
+        class="phonenum"
+        required
+      />
+      <input
+        type="email"
+        class="email"
+        placeholder="Enter your E-mail address"
+        required
+      />
+      <input
+        type="date"
+        class="date"
+        placeholder="Please enter the date and time you wish to be attended to"
+        required
+      />
+      <input type="time" class="time" required />
+      <select class="selection" required>
+        <option value="Select">Select</option>
+        <option value="Hair Styling & Cuts">Hair Styling & Cuts</option>
+        <option value="Skin Treatment">Skin Treatment</option>
+        <option value="Nail Care">Nail Care</option>
+        <option value="Makeup Artistry">Makeup Artistry</option>
+        <option value="Waxing and Threading">Waxing and Threading</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      const form = document.querySelector(".contactform");
+
+      function sendMail(e) {
+        e.preventDefault();
+        const name = document.querySelector(".fullname"),
+          email = document.querySelector(".email"),
+          date = document.querySelector(".date"),
+          time = document.querySelector(".time"),
+          selection = document.querySelector(".selection");
+
+        Email.send({
+          SecureToken: "2020957e-609f-47bf-bb0f-90e2a6645040",
+          To: email.value,
+          From: "allegedly2021@hotmail.com",
+          Subject: "Your Appointment is Successful",
+          Body:
+            "Dear " +
+            name.value +
+            ", " +
+            "\nYour appointment with us for the " +
+            selection.value +
+            " on " +
+            date.value +
+            " by " +
+            time.value +
+            " was Successful." +
+            "\nThank you for your patronage.",
+        }).then((message) => alert(message));
+      }
+
+      form.addEventListener("submit", sendMail);
+    </script>
+  </body>
+</html>
